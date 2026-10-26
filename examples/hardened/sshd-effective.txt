@@ -1,0 +1,8 @@
+# SYNTHETIC LAB SNAPSHOT - representative sshd -T output, not a real machine
+permitrootlogin no
+passwordauthentication no
+kbdinteractiveauthentication no
+permitemptypasswords no
+pubkeyauthentication yes
+x11forwarding no
+maxauthtries 4
