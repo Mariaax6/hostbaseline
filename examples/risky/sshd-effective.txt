@@ -6,3 +6,8 @@ permitemptypasswords no
 pubkeyauthentication yes
 x11forwarding yes
 maxauthtries 8
+hostbasedauthentication no
+permituserenvironment yes
+logingracetime 120
+allowtcpforwarding yes
+loglevel INFO

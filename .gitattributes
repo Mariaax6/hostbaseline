@@ -3,5 +3,5 @@
 *.java text eol=lf
 *.md text eol=lf
 *.yml text eol=lf
-*.pcap binary
+*.txt text eol=lf
 *.jar binary

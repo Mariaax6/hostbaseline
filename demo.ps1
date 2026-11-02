@@ -9,11 +9,16 @@ if (-not $JdkHome) { throw "Specify -JdkHome with a JDK 17+ installation, for ex
 $java = Join-Path $JdkHome 'bin/java.exe'
 Push-Location $PSScriptRoot
 try {
-    & $java -jar dist/hostbaseline.jar examples/risky reports/risky workstation examples/hardened
-    if ($LASTEXITCODE -ne 1) { throw 'Risky fixture did not produce the expected failure exit code' }
-    & $java -jar dist/hostbaseline.jar examples/hardened reports/hardened workstation
-    if ($LASTEXITCODE -ne 0) { throw 'Hardened fixture failed' }
-    & $java -jar dist/hostbaseline.jar examples/incomplete reports/incomplete workstation
-    if ($LASTEXITCODE -ne 3) { throw 'Incomplete fixture did not produce UNKNOWN' }
+    function Expect([int]$Want, [string[]]$Arguments) {
+        & $java -jar dist/hostbaseline.jar @Arguments | Out-Null
+        if ($LASTEXITCODE -ne $Want) { throw "Expected exit $Want but got ${LASTEXITCODE}: $($Arguments -join ' ')" }
+        Write-Host "ok   exit $LASTEXITCODE   $($Arguments -join ' ')"
+    }
+    Expect 1 @('examples/risky', 'reports/risky', '--baseline', 'examples/hardened')
+    Expect 0 @('examples/hardened', 'reports/hardened')
+    Expect 3 @('examples/incomplete', 'reports/incomplete')
+    Expect 1 @('examples/router', 'reports/router-as-workstation')
+    Expect 0 @('examples/router', 'reports/router', '--role', 'router')
+    Expect 2 @('examples/does-not-exist', 'reports/none')
     Write-Host 'Open reports/risky/report.html to inspect the comparison.'
 } finally { Pop-Location }

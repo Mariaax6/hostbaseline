@@ -1,12 +1,13 @@
-## Version 1.0.1
+## HostBaseline 2.0.0
 
-Initial educational Java 17 implementation, with AI-assisted development explicitly documented.
+Major revision. **Breaking changes:** command-line syntax, JSON schema and Java package name.
 
-- Source code, deterministic lab examples and regression checks.
-- Offline build scripts for PowerShell and POSIX shells; no external Java runtime libraries.
-- HTML and machine-readable reports.
-- English README and Spanish learning guide.
+- 24 checks (was 12): five new SSH checks (host-based auth, user environment, login grace time, TCP forwarding, log level), and new network and kernel hardening checks.
+- Numeric rules (`MaxAuthTries`, `LoginGraceTime`) are compared as numbers; a non-numeric value is now UNKNOWN instead of FAIL.
+- Snapshots must be valid UTF-8. Malformed input and UTF-16 exports (e.g. PowerShell `>`) are rejected with a clear message instead of being silently repaired.
+- Named options: `--role`, `--baseline`, `--list-checks`, `--version`.
+- Findings now carry the reason for UNKNOWN, a reference link and structured evidence. JSON `schemaVersion` is 2.
+- HTML report supports dark mode; console output lists every failing or unknown check.
+- New router example, `demo.sh`, end-to-end exit-code verification in CI, Dependabot for workflow updates and a SHA-256 checksum published with the JAR.
 
-The release JAR is rebuilt and tested by the release workflow. A Java 17+ runtime is required. This is an educational tool; see README for unsupported formats, policy assumptions and interpretation limits.
-
-Packaging fix: preserve the GitHub tag environment variable when generating the publication command. Version 1.0.0 built and passed verification but its automated publication failed; 1.0.1 corrects that workflow.
+Requires a Java 17+ runtime. This is an educational tool; see the README for unsupported formats, policy assumptions and interpretation limits.
