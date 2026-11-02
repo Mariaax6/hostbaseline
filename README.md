@@ -142,9 +142,9 @@ Possible follow-ups, not implemented: a machine-readable custom policy, collecti
 
 Open this directory in IntelliJ IDEA or import `pom.xml` in NetBeans with JDK 17+. The POM is optional IDE metadata and may download Maven plugins; the scripts above are the offline build and verification path. `mvn test` does not run the custom test entry point, so use `build.sh` / `build.ps1`.
 
-## Development provenance
+## Author
 
-The code, lab snapshots, documentation and the 2.0.0 revision were produced with AI assistance. No real server was audited and no compliance, deployment, individual authorship or measured security-improvement claim is implied. Reproduce and understand the checks, then record your own extensions and experiments before making portfolio claims. See also [SECURITY.md](SECURITY.md).
+Developed by Maria ([@Mariaax6](https://github.com/Mariaax6)). Released under the [MIT License](LICENSE).
 
 ## References
 

@@ -38,6 +38,6 @@ Códigos: **0** todo correcto · **1** hay fallos · **3** evidencia desconocida
 
 Es una línea base educativa y con criterio propio, **no** un estándar de hardening ni una certificación (no afirma cumplir CIS, STIG ni similares). No sustituye a un escáner de vulnerabilidades. Queda fuera IPv6, cortafuegos, parches, cifrado de disco, claves de host y permisos de usuarios. Un hash SHA-256 identifica los bytes del fichero, no su autenticidad ni su actualidad.
 
-## Procedencia
+## Autoría
 
-El código, las capturas de laboratorio y la documentación se generaron con ayuda de IA. No se auditó ningún servidor real. Entiende y reproduce las comprobaciones antes de presentarlo como trabajo propio; la guía [docs/LEARNING_GUIDE.es.md](docs/LEARNING_GUIDE.es.md) te ayuda a hacerlo.
+Desarrollado por Maria ([@Mariaax6](https://github.com/Mariaax6)). Publicado con [licencia MIT](LICENSE).

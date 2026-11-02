@@ -1,4 +1,4 @@
-# Cómo entender y defender HostBaseline
+# Guía técnica de HostBaseline
 
 ## Recorrido del código
 
@@ -9,7 +9,7 @@
 5. `Report`: genera HTML y JSON escapando siempre los valores, que son entrada no confiable.
 6. `Main.run`: interpreta la línea de comandos y devuelve un código de salida útil para automatización (`System.exit` solo se llama en `main`, lo que permite probarlo).
 
-## Preguntas de entrevista
+## Preguntas de repaso
 
 - ¿Por qué leer directamente `sshd_config` no basta para conocer la configuración efectiva?
 - ¿Qué cambia con `Include`, `Match` y el contexto usado en `sshd -T`?
@@ -22,11 +22,11 @@
 - ¿Por qué un cambio de hash no implica un cambio en las comprobaciones evaluadas?
 - ¿Qué falta para afirmar que un sistema cumple una norma completa de hardening?
 
-## Experimento propio sugerido
+## Próximo experimento
 
 En una VM Linux que controles, exporta la configuración efectiva con dos contextos SSH distintos y conserva la fecha y el contexto de cada captura. Compara con `--baseline` sin cambiar la configuración del servicio. Explica qué aspectos el auditor no observa y qué resultados dependen del rol elegido.
 
-## Ampliaciones con contenido técnico
+## Posibles ampliaciones
 
 - Añade una comprobación siguiendo `CONTRIBUTING.md`: ID estable, matcher, justificación, referencia, y pruebas de caso correcto, incorrecto y desconocido antes de anunciarla.
 - Añade un manifiesto de recolección con hora, rol y contexto SSH, y avisa de capturas antiguas. Mantén clara la diferencia entre metadatos declarados y evidencia autenticada.
